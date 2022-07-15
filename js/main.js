@@ -3,12 +3,14 @@
 let sigils = document.querySelectorAll('.sigilContainer'),
     houseVid = document.querySelector('video'),
     lightBox = document.querySelector ('.lightbox'),
-    closeBut = lightBox.querySelector('.close');
+    closeBut = lightBox.querySelector('.close'),
 
 
     // variables to change the content when clicked on the shield
     houseName = document.querySelector('.house-name'),
-    houseInfo = document.querySelector('.house-desc');
+    houseInfo = document.querySelector('.house-desc'),
+
+    bannerImages = document.querySelector(`#houseImages`);
 
 const houseData = [
     //`stark.jpg`, //index 0 // add data-offset ="0" in theimagem into html
@@ -31,6 +33,16 @@ function showHouseData() {
     houseName.textContent = `House ${houseData[this.dataset.offset][0]}`; 
     houseInfo.textContent = houseData[this.dataset.offset][1];
     //houseName.src = 'images/houseData [0]; for image
+
+    let animationTotal = 600 * this.dataset.offset;
+
+    //each banner is 600px wide, so multiply that by a numerator
+
+    bannerImages.style.right = `${animationTotal}px`;
+        //actually change the CSS an animate the banner
+
+    console.log('move the banner images', animationTotal);
+
 }
 
 //this function is for show the lightbox
